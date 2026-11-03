@@ -1,36 +1,57 @@
 # Healthcare Operations Analytics & KPI Report
 
-> **Portfolio demonstration | Synthetic / fictional data only**
+![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-Reproducible appointment-operations metrics generated from synthetic clinic appointment data, with SQL examples and an HTML dashboard.
+Reproducible appointment-operations metrics for a clinic network, delivered three ways: a Python script, a static HTML dashboard, and equivalent SQL queries for BI tools.
 
-## What this demonstrates
-- Calculate no-show and cancellation rates, clinic utilization and encounter volumes
-- Generate a shareable HTML KPI summary
-- Provide SQL queries for conventional BI use
+> Built on synthetic appointment data only. No real patient information is included.
+
+## Why this exists
+
+Clinic operations teams track a handful of numbers every week: how many patients don't show, how many cancel, and how well schedules are used. This project computes those KPIs from raw appointment records and presents them in a form both analysts (SQL) and managers (HTML) can use.
+
+## KPIs
+
+- No-show rate
+- Cancellation rate
+- Clinic utilization
+- Encounter volumes
+
+## Project structure
+
+```
+.
+├── data/
+│   └── appointments.csv       # fictional appointment records
+├── src/
+│   └── main.py                # KPI calculations and HTML dashboard generation
+├── sql/
+│   └── kpis.sql               # the same KPIs as reporting queries
+├── tests/
+│   └── test_main.py
+├── output/
+│   └── dashboard.html         # generated report (open in any browser)
+├── LICENSE
+└── README.md
+```
 
 ## Quick start
+
+Requires Python 3.10+ (standard library only). Run from the repository root.
+
 ```bash
-python src/main.py
+python src/main.py                      # regenerates output/dashboard.html
 python -m unittest discover -s tests
 ```
 
-Python 3.10+ is recommended. Core functionality uses the Python standard library; no API keys or patient records are required. Run commands from the repository root.
+Then open `output/dashboard.html` in a browser.
 
-## Repository contents
-- `data/appointments.csv`: fictional appointment records
-- `src/main.py`: KPI calculations and HTML dashboard
-- `sql/kpis.sql`: reporting queries
-- `output/dashboard.html`: generated in quick start
+## Limitations and next steps
 
-## Relevant skills
-Python, healthcare operations, KPI design, SQL, data visualization, HTML
-
-## Data and privacy
-All records, facilities, identifiers, events and organizations in this repository are fabricated for demonstrations. This is **not** a production clinical system and does not contain real protected health information (PHI). Do not upload real patient data or confidential employer files. Outputs do not substitute for clinical, privacy, security, or regulatory review.
-
-## How to discuss in an interview
-Explain the input, validations or transformations, measurable outputs, tests, and what you would change for a real deployment (authentication, audit logs, monitoring, regulatory review, and secure storage). Describe this as a **personal portfolio project**, not as an implementation at an employer.
+- Static snapshot; no filtering by date range or clinic in the browser.
+- Utilization depends on how capacity is defined in the sample data; real definitions vary by organization.
+- Possible extensions: trend lines over time, per-provider breakdowns, and loading the data into a database so the SQL queries run against it directly.
 
 ## License
-MIT — see [LICENSE](LICENSE).
+
+MIT. See [LICENSE](LICENSE).
