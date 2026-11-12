@@ -52,6 +52,3 @@ Then open `output/dashboard.html` in a browser.
 - Utilization depends on how capacity is defined in the sample data; real definitions vary by organization.
 - Possible extensions: trend lines over time, per-provider breakdowns, and loading the data into a database so the SQL queries run against it directly.
 
-## License
-
-MIT. See [LICENSE](LICENSE).
